@@ -1,5 +1,5 @@
 # CK3-Family-Tree-Exporter-To-Gramps-Fast-JSON-Version
-
+![alt text](https://github.com/blastentwice/CK3-Family-Tree-Exporter-To-Gramps-Fast-JSON-Version/blob/main/Screenshots/showcase.png?raw=true)
 
 **The Exporter is working as of game version 1.3.1 (Corvus) With Normal AND Ironman Save. It can be used for other languages other than english if you tweak the .py file
 and create an executable from it yourself**
