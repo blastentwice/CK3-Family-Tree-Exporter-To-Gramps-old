@@ -96,8 +96,7 @@ Link both parents to the same children but not to each other.
 
 A near future implementation is a stats report that include information on top Faiths,Traits, and other data. They can be manually done in Gramps in using the native filter app, but can be hard to navigate through if you don't know what you're what you're looking for.
 
-## Contacts##
+## Contacts ##
 
-For future inform
-
+For any questions, concerns, and sharing the love for Crusader Kings 3, you can join the discord server here.
 
