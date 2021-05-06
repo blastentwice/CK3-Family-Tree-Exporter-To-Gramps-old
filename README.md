@@ -21,13 +21,15 @@ Documentations on how to use Gramps can be found here https://gramps-project.org
 
 2. Copy and move your ck3 save file in the same folder as the program. There is no need to extract them as the program will do that automatically if needed.
 
-## Step 2: Setting up Gramps
+## Step 2: Setting Up Gramps
 
-3. Download Gramps from https://gramps-project.org/blog/download/. Once installed, if not prompted automatically, go to Edit->Preferences->General tab and click on  the Check for updated addons now button. Choose download all addons to get the most out of Gramps.
+3. Download Gramps from https://gramps-project.org/blog/download/. Once installed, you willbe prompted to make a family tree. Opt out of this for now.
+
+4. If not done already, go to Edit->Preferences->General tab and click on  the Check for updated addons now button. Choose download all addons to get the most out of Gramps.
 
 4. Close the program for now. If you leave it running on the background it will prevent the exporter from using its features.
 
-## Step 2: Convert your save into a JSON file  ##
+## Step 2: Convert Your Save Into A JSON File  ##
 
 5.Run the exporttree.exe file. You will encounter a menu with several options. For the first time you are working with the save you need to pick option 1 to convert your save into a JSON file. This type of file allows us to quickly parse through many lines of text at tremendous speeds.
 
@@ -35,12 +37,12 @@ Documentations on how to use Gramps can be found here https://gramps-project.org
 
 7. Let the program convert your file. It should no longer than 15 seconds to get a JSON file. Hit the enter key when it's done when prompted to return to the main menu
 
-## Step 3: Export your family tree into an CSV file  ##
+## Step 3: Export Your Family Tree Into A CSV file  ##
 
 8. Pick option 2 to extract family tree information into a CSV format. You will be prompted to provided the name of the JSON as well as the game directory. **"C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game** is the usual directory for steam releases. The exported needs this directory to utilize the localization files to convert the values or keys into readable English.
 
 9. The process will create a folder called pickle. The pickles files inside are basically savedata for when you choose to run the program again. that way, you will only have
-to enter your game directory once and all the game information the exporter needs are loaded instantly from the pickle files. This will significantly shorten run time for future use.
+to enter your game directory once and all the game information the exporter needs are loaded instantly from the pickle files. 
 
 10.Input the Dynasty/House of the character and the character's id  that you want to start your tree from when prompted. The character's id can be found by running CK3 in debug mode or by looking in the savefile. Then, decide if you want to include Cadet Members' offspring. Note that the character you choose is where the tree will start from. Extended
 families will not be included. If you want everyone in the dynasty, pick the dynasty founder as the base instead.
@@ -53,7 +55,7 @@ this CSV file as is using https://gramps-project.org/wiki/index.php/Gramps_5.1_W
 
 13. Proceed to the next option to automatically import Gramps with faith and traits icons for each character. 
 
-## Step 4: Convert your CSV file into a Gramps-XML to include image information and automatically importing into Gramps  ##
+## Step 4: Convert Your CSV File Into A Gramps-XML To Include Image Information And Automatically Importing Into Gramps  ##
 
 14. For this step, it is important that Gramps is not running in the background. Otherwise, the program will get an error or hang.
 
@@ -64,22 +66,38 @@ this CSV file as is using https://gramps-project.org/wiki/index.php/Gramps_5.1_W
 17. A Gramps-XML file will be created by using the Gramps command line features. The exporter will work off from this XML by adding links to the images in your directory
 and attaching it to every character that has those faiths or traits.
 
-17. The program will prompt you if you want to change your family tree name from the default YourDynasty_Tree name. Note that if you already have a tree in Gramps with the same name, it will overwrite it. Be sure to change the tree name if that is the case.
+17. The exporter will prompt you if you want to change your family tree name from the default YourDynasty_Tree name. Note that if you already have a tree in Gramps with the same name, it will overwrite it. Be sure to change the tree name if that is the case.
 
-18. The import to Gramps will be done automatically using the command
+18. The import to Gramps will be done automatically using the its command line features.
+
+19. You may exit the exporter After completing this step. Once you confirm that the import goes through you can delete your Gramps-XML and CSV file if you wish. You can delete the JSON file as well if you're not using it to extract other dunasties in your save.
+  
+20. The JSON file can be used to make family trees with other dynasties in your save 
+
+## Step 5: Run Gramps  ##
+
+21. Start Gramps. The program will now disply your tree in the managing family tree pop up that appears when you first start the program. Click on that to open your tree.
+
+22. The program has many features that you can read about in the Gramps wiki https://www.gramps-project.org/wiki. You can use its many charts to view your tree, including
+pedigree, fan charts, and graphview. You can use the person tab to view each character's information. You can also play around with the tools that you can you use to personalize
+your tree styles and export them into pdf or png form. Lastly, you can export your tree to other formats. THE XML format that includes media is escpcially useful if you're
+transferring family tree to another computer or sharing with friends.
+
+## Step 6: Troubleshooting ##
+Any errors that may come up are displayed on the exporter window as well as a produced log file called exporter.log. You may use this information to fix it yourself or
+post in it the issues or discord server for discussion.
+
+As previously stated, future use of the exporter will use the pickle folder to quickly load all information regarding game information and saves. IF you encounter
+any unknown problems, deleting this folder and starting a clean session would usually fix it.
+
+## Future Plans ##
+There are many innovations that are in the works. The most glaring feature missing is coat of arms, which is difficult to implement because of a lack of a COA editor/creation tool that generates a COA with several numeric values and files. Another is the depiction of spousal relation because dynasty members as well. The program currently will
+Link both parents to the same children but not to each other.
+
+A near future implementation is a stats report that include information on top Faiths,Traits, and other data. They can be manually done in Gramps in using the native filter app, but can be hard to navigate through if you don't know what you're what you're looking for.
+
+## Contacts##
+
+For future inform
 
 
-17. Download and install Gramps from the link above. After installation, replace importcsv.py script in **C:\Program Files\GrampsAIO64-5.1.3\gramps\plugins\importer** 
-with the one in the respotitory. This will allow you to keep the program from changing the gender of LGBQ+ persons that are parents when you import the csv into Gramps. This step can be skipped, but you must go to Edit->Preferences->Display and change "Surname guessing" parameter to "None" within Gramps after everytime you create a new tree.
-
-7. After you launch the program it will prompt you to make a family tree. Click new to make the tree and load it.
-
-8. Go to Edit->Preferences->General tab and click on the the Check for updated addons now button. You can choose to download all the modules or simply download Graph View which is used to view the family tree. 
-
-9. Got to Edit->Preferences->Display tab to change Name format to display the title of the characters.
-
-10. Go to Family Trees->Import and select your csv file. The program will load up the file into its database. From here, you can play around with the program. there are extensive documentation regarding its tools that you can read on your own here https://gramps-project.org/wiki. 
-
-11. To look at the tree CK3 style,go to the Charts tab and select the button up top that looks like two parallel lines labeled Graph View. Documentation for the program can be found here https://www.gramps-project.org/wiki/index.php/Graph_View.
-
-12. OPTIONAL: Export your Gramps tree as a GEDCOM file by going to Family Tree->Export. 
