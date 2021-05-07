@@ -49,7 +49,7 @@ Documentations on how to use Gramps can be found here https://gramps-project.org
 11. The process will create a folder called pickle. The pickles files inside are basically savedata for when you choose to run the program again. that way, you will only have
 to enter your game directory once and all the game information the exporter needs are loaded instantly from the pickle files. 
 
-12.Input the Dynasty/House of the character and the character's id  that you want to start your tree from when prompted. The character's id can be found by running CK3 in debug mode or by looking in the savefile. Then, decide if you want to include Cadet Members' offspring. Note that the character you choose is where the tree will start from. Extended
+12. Input the Dynasty/House of the character and the character's id  that you want to start your tree from when prompted. The character's id can be found by running CK3 in debug mode or by looking in the savefile. Then, decide if you want to include Cadet Members' offspring. Note that the character you choose is where the tree will start from. Extended
 families will not be included. If you want everyone in the dynasty, pick the dynasty founder as the base instead.
 
 13. Confirm your input to start the script. The script should run and display the processed characters on the screen so that you can monitor the progress. This will finish very
