@@ -23,67 +23,72 @@ Documentations on how to use Gramps can be found here https://gramps-project.org
 
 ## Step 2: Setting Up Gramps
 
-3. Download Gramps from https://gramps-project.org/blog/download/. Once installed, you willbe prompted to make a family tree. Opt out of this for now.
+3. Download Gramps from https://gramps-project.org/blog/download/ and install it. Once installed, you will be prompted to make a family tree. Opt out of this for now.
 
-4. If not done already, go to Edit->Preferences->General tab and click on  the Check for updated addons now button. Choose download all addons to get the most out of Gramps.
+4. If not done already, go to Edit->Preferences->General tab and click on the Check for updated addons now button. Choose download all addons to get the most out of Gramps.
 
-4. Close the program for now. If you leave it running on the background it will prevent the exporter from using its features.
+5. Close the program for now. If you leave it running on the background it will prevent the exporter from using its features.
 
-## Step 2: Convert Your Save Into A JSON File  ##
+## Step 3: Install Imagemagick
 
-5.Run the exporttree.exe file. You will encounter a menu with several options. For the first time you are working with the save you need to pick option 1 to convert your save into a JSON file. This type of file allows us to quickly parse through many lines of text at tremendous speeds.
+6. Download and install imagemagick from https://imagemagick.org/script/download.php. This software is required for the exporter to run as it draws from imagemagick to convert 
+.dds icons in the game folder to png format.
 
-6. You will be prompted to indicate whether the save is an ironman or normal save. Then, provide the name of your ck3 file (eg. mysave.ck3)
+## Step 4: Convert Your Save Into A JSON File  ##
 
-7. Let the program convert your file. It should no longer than 15 seconds to get a JSON file. Hit the enter key when it's done when prompted to return to the main menu
+7.Run the exporttree.exe file. You will encounter a menu with several options. For the first time you are working with the save you need to pick option 1 to convert your save into a JSON file. This type of file allows us to quickly parse through many lines of text at tremendous speeds.
 
-## Step 3: Export Your Family Tree Into A CSV file  ##
+8. You will be prompted to indicate whether the save is an ironman or normal save. Then, provide the name of your ck3 file (eg. mysave.ck3)
 
-8. Pick option 2 to extract family tree information into a CSV format. You will be prompted to provided the name of the JSON as well as the game directory. **"C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game** is the usual directory for steam releases. The exported needs this directory to utilize the localization files to convert the values or keys into readable English.
+9. Let the program convert your file. It should no longer than 15 seconds to get a JSON file. Hit the enter key when it's done when prompted to return to the main menu
 
-9. The process will create a folder called pickle. The pickles files inside are basically savedata for when you choose to run the program again. that way, you will only have
+## Step 5: Export Your Family Tree Into A CSV file  ##
+
+10. Pick option 2 to extract family tree information into a CSV format. You will be prompted to provided the name of the JSON as well as the game directory. **"C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game** is the usual directory for steam releases. The exported needs this directory to utilize the localization files to convert the values or keys into readable English.
+
+11. The process will create a folder called pickle. The pickles files inside are basically savedata for when you choose to run the program again. that way, you will only have
 to enter your game directory once and all the game information the exporter needs are loaded instantly from the pickle files. 
 
-10.Input the Dynasty/House of the character and the character's id  that you want to start your tree from when prompted. The character's id can be found by running CK3 in debug mode or by looking in the savefile. Then, decide if you want to include Cadet Members' offspring. Note that the character you choose is where the tree will start from. Extended
+12.Input the Dynasty/House of the character and the character's id  that you want to start your tree from when prompted. The character's id can be found by running CK3 in debug mode or by looking in the savefile. Then, decide if you want to include Cadet Members' offspring. Note that the character you choose is where the tree will start from. Extended
 families will not be included. If you want everyone in the dynasty, pick the dynasty founder as the base instead.
 
-11. Confirm your input to start the script. The script should run and display the processed characters on the screen so that you can monitor the progress. This will finish very
+13. Confirm your input to start the script. The script should run and display the processed characters on the screen so that you can monitor the progress. This will finish very
 quickly.
 
-12.  A CSV file should have been created in the same directory as the script along with the pickle information for faster uses in the future. You can manually import 
+14.  A CSV file should have been created in the same directory as the script along with the pickle information for faster uses in the future. You can manually import 
 this CSV file as is using https://gramps-project.org/wiki/index.php/Gramps_5.1_Wiki_Manual_-_Manage_Family_Trees:_CSV_Import_and_Export. 
 
-13. Proceed to the next option to automatically import Gramps with faith and traits icons for each character. 
+15. Proceed to the next option to automatically import Gramps with faith and traits icons for each character. 
 
-## Step 4: Convert Your CSV File Into A Gramps-XML To Include Image Information And Automatically Importing Into Gramps  ##
+## Step 6: Convert Your CSV File Into A Gramps-XML To Include Image Information And Automatically Importing Into Gramps  ##
 
-14. For this step, it is important that Gramps is not running in the background. Otherwise, the program will get an error or hang.
+16. For this step, it is important that Gramps is not running in the background. Otherwise, the program will get an error or hang.
 
-15. You will need to first provide the name of your CSV file and the Gramps directory where the executable is stored. This is usually **C:\Program Files\GrampsAIO64-5.1.3\**.
+17. You will need to first provide the name of your CSV file and the Gramps directory where the executable is stored. This is usually **C:\Program Files\GrampsAIO64-5.1.3\**.
 
-16. Next, for first time use, you will need to enter your game directory again. Two folders with  faith and traits png images will be created in your directory.
+18. Next, for first time use, you will need to enter your game directory again. Two folders with  faith and traits png images will be created in your directory.
 
-17. A Gramps-XML file will be created by using the Gramps command line features. The exporter will work off from this XML by adding links to the images in your directory
+19. A Gramps-XML file will be created by using the Gramps command line features. The exporter will work off from this XML by adding links to the images in your directory
 and attaching it to every character that has those faiths or traits.
 
-17. The exporter will prompt you if you want to change your family tree name from the default YourDynasty_Tree name. Note that if you already have a tree in Gramps with the same name, it will overwrite it. Be sure to change the tree name if that is the case.
+20. The exporter will prompt you if you want to change your family tree name from the default YourDynasty_Tree name. Note that if you already have a tree in Gramps with the same name, it will overwrite it. Be sure to change the tree name if that is the case.
 
-18. The import to Gramps will be done automatically using the its command line features.
+21. The import to Gramps will be done automatically using the its command line features.
 
-19. You may exit the exporter After completing this step. Once you confirm that the import goes through you can delete your Gramps-XML and CSV file if you wish. You can delete the JSON file as well if you're not using it to extract other dunasties in your save.
+22. You may exit the exporter After completing this step. Once you confirm that the import goes through you can delete your Gramps-XML and CSV file if you wish. You can delete the JSON file as well if you're not using it to extract other dunasties in your save.
   
-20. The JSON file can be used to make family trees with other dynasties in your save 
+23. The JSON file can be used to make family trees with other dynasties in your save 
 
-## Step 5: Run Gramps  ##
+## Step 7: Run Gramps  ##
 
-21. Start Gramps. The program will now disply your tree in the managing family tree pop up that appears when you first start the program. Click on that to open your tree.
+24. Start Gramps. The program will now disply your tree in the managing family tree pop up that appears when you first start the program. Click on that to open your tree.
 
-22. The program has many features that you can read about in the Gramps wiki https://www.gramps-project.org/wiki. You can use its many charts to view your tree, including
+25. The program has many features that you can read about in the Gramps wiki https://www.gramps-project.org/wiki. You can use its many charts to view your tree, including
 pedigree, fan charts, and graphview. You can use the person tab to view each character's information. You can also play around with the tools that you can you use to personalize
 your tree styles and export them into pdf or png form. Lastly, you can export your tree to other formats. THE XML format that includes media is escpcially useful if you're
 transferring family tree to another computer or sharing with friends.
 
-## Step 6: Troubleshooting ##
+## Step 8: Troubleshooting ##
 Any errors that may come up are displayed on the exporter window as well as a produced log file called exporter.log. You may use this information to fix it yourself or
 post in it the issues or discord server for discussion.
 
