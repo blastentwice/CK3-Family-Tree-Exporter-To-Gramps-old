@@ -18,7 +18,6 @@ import json
 import subprocess
 import xml.etree.ElementTree as ET
 import gzip
-from wand.image import Image
 import traceback
 import logging
 warnings.simplefilter(action='ignore', category=FutureWarning)
@@ -1025,7 +1024,7 @@ def tojson():
             ck3i=input()
             if os.path.isfile(ck3i) is True:
                 ck3n=''
-                ck3json=re.sub('(.*).ck3',r'\1.json',ck3i)
+                ck3json=os.path.splitext(ck3i)[0]+'.json'
                 break
             else:
                 print('Invalid file. Please try again.')
@@ -1035,7 +1034,7 @@ def tojson():
             ck3n=input()
             if os.path.isfile(ck3n) is True:
                 ck3i=''
-                ck3json=re.sub('(.*).ck3',r'\1.json',ck3n)
+                ck3json=os.path.splitext(ck3n)[0]+'.json'
                 break
             else:
                 print('Invalid file. Please try again.')
@@ -1087,7 +1086,8 @@ def tojson():
         elif p1.returncode!=0 and bool(ck3n) is True :
             print(p1.stderr)
             print('\nFailed to convert file to JSON. The converter may not be compatible with your save version or your save has invalid characters. Please refer to the README file for further instructions')
-            os.remove(gamestatenew)
+            if preextracted is False:
+                os.remove(gamestatenew)
             raise Exception('An error has occurred')   
         elif p1.returncode!=0 and bool(ck3i) is True:
             print(p1.stderr)
@@ -1162,28 +1162,20 @@ def with_icons():
             break
         else:
             continue
-    start = time.time()
 #end while loop
     if os.path.isdir('faith_icon') is False and os.path.isdir('traits_icon') is False:
         os.makedirs('faith_icon',exist_ok=True)
         os.makedirs('traits_icon',exist_ok=True)
-        path=fr'{yourinput}\gfx\interface\icons\faith\\'
-        path2=fr'{yourinput}\gfx\interface\icons\traits\\'
-        dirList=os.listdir(path)
-        dirList2=os.listdir(path2)
-        for fname in dirList:
-            with Image(filename=path+fname) as img:
-                fname=re.sub('(.*).dds',r'\1.png',fname)
-                img.format = 'png'
-                img.save(filename=fr'.\faith_icon\\{fname}')
-        for fname in dirList2:
-            with Image(filename=path2+fname) as img:
-                fname=re.sub('(.*).dds',r'\1.png',fname)
-                img.format = 'png'
-                img.save(filename=fr'.\traits_icon\\{fname}')
+        path=fr'{yourinput}\gfx\interface\icons\faith'
+        path2=fr'{yourinput}\gfx\interface\icons\traits'
+        pathpng=path+'\*png'
+        pathpng2=path2+'\*png'
+        p1=(subprocess.run(fr'DDStronk "{path}" && move "{pathpng}" faith_icon',shell=True,capture_output=True,input=b'yes')) 
+        p1=(subprocess.run(fr'DDStronk "{path2}" && move "{pathpng2}" traits_icon',shell=True,capture_output=True,input=b'yes')) 
         print('Converted icons saved to main directory')
     else:
         pass
+    start = time.time()
 #Parse XML and add obj element
     iconlist=os.listdir('faith_icon')
     traitlist=os.listdir('traits_icon')
