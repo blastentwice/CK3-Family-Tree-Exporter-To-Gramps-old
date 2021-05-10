@@ -29,12 +29,7 @@ Documentations on how to use Gramps can be found here https://gramps-project.org
 
 5. Close the program for now. If you leave it running on the background it will prevent the exporter from using its features.
 
-## Step 3: Install Imagemagick
-
-6. Download and install imagemagick from https://imagemagick.org/script/download.php. This software is required for the exporter to run as it draws from imagemagick to convert 
-.dds icons in the game folder to png format.
-
-## Step 4: Convert Your Save Into A JSON File  ##
+## Step 3: Convert Your Save Into A JSON File  ##
 
 7.Run the exporttree.exe file. You will encounter a menu with several options. For the first time you are working with the save you need to pick option 1 to convert your save into a JSON file. This type of file allows us to quickly parse through many lines of text at tremendous speeds.
 
@@ -42,7 +37,7 @@ Documentations on how to use Gramps can be found here https://gramps-project.org
 
 9. Let the program convert your file. It should no longer than 15 seconds to get a JSON file. Hit the enter key when it's done when prompted to return to the main menu
 
-## Step 5: Export Your Family Tree Into A CSV file  ##
+## Step 4: Export Your Family Tree Into A CSV file  ##
 
 10. Pick option 2 to extract family tree information into a CSV format. You will be prompted to provided the name of the JSON as well as the game directory. **"C:\Program Files (x86)\Steam\steamapps\common\Crusader Kings III\game** is the usual directory for steam releases. The exported needs this directory to utilize the localization files to convert the values or keys into readable English.
 
@@ -60,7 +55,7 @@ this CSV file as is using https://gramps-project.org/wiki/index.php/Gramps_5.1_W
 
 15. Proceed to the next option to automatically import Gramps with faith and traits icons for each character. 
 
-## Step 6: Convert Your CSV File Into A Gramps-XML To Include Image Information And Automatically Importing Into Gramps  ##
+## Step 5: Convert Your CSV File Into A Gramps-XML To Include Image Information And Automatically Importing Into Gramps  ##
 
 16. For this step, it is important that Gramps is not running in the background. Otherwise, the program will get an error or hang.
 
@@ -79,7 +74,7 @@ and attaching it to every character that has those faiths or traits.
   
 23. The JSON file can be used to make family trees with other dynasties in your save 
 
-## Step 7: Run Gramps  ##
+## Step 6: Run Gramps  ##
 
 24. Start Gramps. The program will now disply your tree in the managing family tree pop up that appears when you first start the program. Click on that to open your tree.
 
