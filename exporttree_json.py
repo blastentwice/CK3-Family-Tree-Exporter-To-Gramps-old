@@ -771,6 +771,8 @@ def getperson():
                 reason=re.sub('_','',reason)
                 reason=re.sub(' Passive','',reason)
                 reason='\n'+'Cause of Death: '+reason
+            else:
+                reason=''
     # DEAD COMBINE
             notes='Game ID: '+i+titlenote+accented+birthnote+deathnote+reason+satli+faith+culture+gendernote
             combine=i,i,iterhouse3,itername,sex,birth,death,itertitle,notes
@@ -813,7 +815,7 @@ def getperson():
                 iterhouse3=''
     # OTHER GENDER
             if 'sexuality' in other[i]:
-                sexo=dead[i]['sexuality']
+                sexo=other[i]['sexuality']
                 sexo=re.sub('as','Asexual',sexo)
                 sexo=re.sub('bi','Bisexual',sexo)
                 sexo=re.sub('ho','Homosexual',sexo)
@@ -954,7 +956,7 @@ def getperson():
 
     # OTHER CULTURE
             if 'culture' in other[i]:
-                pcult=dead[i]['culture']
+                pcult=other[i]['culture']
                 cultem=cult[str(pcult)]['culture_template']
                 culture=(re.findall(fr'\b{cultem}\b:.*"(.*)"',loccult))[0]
                 culture='\n'+'Culture: '+culture
@@ -972,6 +974,8 @@ def getperson():
                 reason=re.sub('_','',reason)
                 reason=re.sub(' Passive','',reason)
                 reason='\n'+'Cause of Death: '+reason
+            else:
+                reason=''
     # OTHER COMBINE
             notes='Game ID: '+i+titlenote+accented+birthnote+deathnote+reason+satli+faith+culture+gendernote
             combine=i,i,iterhouse3,itername,sex,birth,death,itertitle,notes
@@ -1346,11 +1350,8 @@ This operation will convert your csv file into gramps-xml, edit the xml to link 
             print(e)
             logging.error(e, exc_info=True)
             
-            #logger.error(e)
-            
         print('Press enter to go back to the main menu')
         done=input()
     else:
         continue
-        
 
