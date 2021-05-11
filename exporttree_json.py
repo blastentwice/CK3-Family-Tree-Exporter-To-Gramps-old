@@ -270,8 +270,8 @@ def getid():
         elif i in other:
             if 'dynasty_house' in other[i] and other[i]["dynasty_house"] in idlist and 'family_data' in other[i] and 'child' in other[i]['family_data']:
                 etck=other[i]['family_data']['child']
-                etck=list(map(str,etc))
-                peep.extend(etc)
+                etck=list(map(str,etck))
+                peep.extend(etck)
                 seen = set()
                 peep[:] = [item for item in peep
                                                    if item not in seen and not seen.add(item)]
