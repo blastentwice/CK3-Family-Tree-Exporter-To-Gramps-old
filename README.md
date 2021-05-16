@@ -94,7 +94,7 @@ any unknown problems, deleting this folder and starting a clean session would us
 There are many innovations that are in the works. The most glaring feature missing is coat of arms, which is difficult to implement because of a lack of a COA editor/creation tool that generates a COA with several numeric values and files. Another is the depiction of spousal relation because dynasty members as well. The program currently will
 Link both parents to the same children but not to each other.
 
-A near future implementation is a stats report that include information on top Faiths,Traits, and other data. They can be manually done in Gramps in using the native filter app, but can be hard to navigate through if you don't know what you're what you're looking for.
+A near future implementation is a stats report that include information on top Faiths,Traits, and other data. They can be manually done in Gramps  using the native filter app, but can be hard to navigate through if you don't know what you're looking for.
 
 ## Contacts ##
 
