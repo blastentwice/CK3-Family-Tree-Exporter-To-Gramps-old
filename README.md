@@ -88,8 +88,9 @@ As previously stated, future use of the exporter will use the pickle folder to q
 any unknown problems, deleting this folder and starting a clean session would usually fix it.
 
 ## Future Plans ##
-There are many innovations that are in the works. The most glaring feature missing is coat of arms, which is difficult to implement because of a lack of a COA editor/creation tool that generates a COA with several numeric values and files. Another is the depiction of spousal relation because dynasty members as well. The program currently 
-links both parents to the same children but not to each other. 
+~~There are many innovations that are in the works. The most glaring feature missing is coat of arms, which is difficult to implement because of a lack of a COA editor/creation tool that generates a COA with several numeric values and files.~~ As of version 2.0, the exporter will be exporting coat of arms! 
+-Depiction of spousal relation and spouses
+-Portraits
 
 A near future implementation is a stats report that include information on top Faiths,Traits, and other data. They can be manually done in Gramps  using the native filter app, but can be hard to navigate through if you don't know what you're looking for.
 
