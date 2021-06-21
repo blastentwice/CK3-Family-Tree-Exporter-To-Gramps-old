@@ -1,7 +1,7 @@
-# CK3-Family-Tree-Exporter-To-Gramps-Fast-JSON-Version
+# CK3-Family-Tree-Exporter-To-Gramps-Fast-JSON-Version (Compatible with 1.4.0 Azure)
 ![alt text](https://github.com/blastentwice/CK3-Family-Tree-Exporter-To-Gramps-Fast-JSON-Version/blob/main/Screenshots/showcase.png?raw=true)
 
-**The Exporter is working as of game version 1.4.0 (Corvus) With Normal AND Ironman Save. It can be used for other languages other than english if you tweak the .py file
+**The Exporter is working as of game version 1.4.0 (Azure) With Normal AND Ironman Save. It can be used for other languages other than english if you tweak the .py file
 and create an executable from it yourself**
 
 This version of the exporter utilizes a JSON formatted save file created from scorpdx's CK3 to JSON converter to make exporting family tree data ridiculously fast. A 10 minute session in the older repo here https://github.com/blastentwice/CK3-Family-Tree-Exporter-To-Gramps takes literal seconds with the JSON version. More infomation about the converter can be found at his repo https://github.com/scorpdx/ck3json.
