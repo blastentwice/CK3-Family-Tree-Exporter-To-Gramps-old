@@ -99,11 +99,14 @@ def getcoa(idnum):
     patcolor=[]
     embcolor1st=[]
     mylist=[]
+    pathpat=[]
+    patcolor=[]
     for i in coa[idnum]:
         if i=='pattern':
             pathpat=coa[idnum][i]
         elif re.search('color\d',i) is not None:
             patcolor.append(coa[idnum][i])
+            
     if bool(patcolor) is False and bool(pathpat) is False:
         pathpat='pattern_solid.dds'
         patcolor.append(colordict['default'])
@@ -183,6 +186,8 @@ def getcadet(idnum):
     mask2allsub={}
     maskcount=-1
     subcount=-1
+    pathpat=[]
+    patcolor=[]
     for i in coa[idnum]:
         if i=='pattern':
             pathpat=coa[idnum][i]
@@ -872,14 +877,14 @@ def addborder(patb,idnum,isdyn,istitle,b1,b2,b3,b4,b5,b6,c1,c2,c3,c4,c5,cx,title
 # In[ ]:
 
 
-with open(r'.\pickle\pic.pickle','rb') as f:
+with open(r'./pickle/pic.pickle','rb') as f:
         traitpic=pickle.load(f)
         faithpic=pickle.load(f)
         dyncoapic=pickle.load(f)
         titlecoapic=pickle.load(f)
         dynprespic=pickle.load(f)
         titlerankpic=pickle.load(f)
-with open(r'.\pickle\json.pickle','rb') as f:
+with open(r'./pickle/json.pickle','rb') as f:
     data=pickle.load(f)
 colordict={
 'red':(114,33,22),
