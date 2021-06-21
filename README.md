@@ -1,4 +1,4 @@
-# CK3-Family-Tree-Exporter-To-Gramps-Fast-JSON-Version (Compatible with 1.4.0 Azure)
+# CK3-Family-Tree-Exporter-To-Gramps-Fast-JSON-Version (Compatible with 1.4.0 Azure patch)
 ![alt text](https://github.com/blastentwice/CK3-Family-Tree-Exporter-To-Gramps-Fast-JSON-Version/blob/main/Screenshots/showcase.png?raw=true)
 
 **The Exporter is working as of game version 1.4.0 (Azure) With Normal AND Ironman Save. It can be used for other languages other than english if you tweak the .py file
