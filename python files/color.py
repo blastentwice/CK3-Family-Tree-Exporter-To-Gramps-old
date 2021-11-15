@@ -301,7 +301,7 @@ def getcadet(idnum):
 
 def pattern(pathpat,patcolor):
     pngpath=re.sub('(.*).dds',r'\1.png',pathpat)
-    img= Image.open(fr'coa_icon/patterns/{pngpath}')
+    img= Image.open(fr'icon/coa_icon/patterns/{pngpath}')
     if img.size!=(256,256):
         img=img.resize((256,256),Image.NEAREST)
     patarray= np.array(img)
@@ -391,7 +391,7 @@ def subpattern(subpat,allpatcolor,patscale):
     yellowmasklist=[]
     for i in range(len(subpat)):
         pngpath=re.sub('(.*).dds',r'\1.png',subpat[i])
-        img= Image.open(fr'coa_icon/patterns/{pngpath}')
+        img= Image.open(fr'icon/coa_icon/patterns/{pngpath}')
         if img.size!=(256,256):
             img=img.resize((256,256),Image.NEAREST)
         patarray= np.array(img)
@@ -475,7 +475,7 @@ def emblem(pathemb,allembcolor,scale,rotation):
     emball=[]
     for i in range(len(pathemb)):
         pngpath=re.sub('(.*).dds',r'\1.png',pathemb[i])
-        img= Image.open(fr'coa_icon/colored_emblems/{pngpath}')
+        img= Image.open(fr'icon/coa_icon/colored_emblems/{pngpath}')
         if img.size!=(256,256):
             img=img.resize((256,256),Image.NEAREST)
             
@@ -484,7 +484,190 @@ def emblem(pathemb,allembcolor,scale,rotation):
         if pngpath=='ce_blank.png' or pngpath=='ce_empty.png':
             emball.append(img)
 
+
+        elif FindGreen(width,height,img) is True and FindBlue(width,height,img) is True and FindRed(width,height,img) is True:
+            # R
+            data1 = emb.copy()
+            data1[:, :, 1] = 0
+            data1[:, :, 2] = 0
+            r = (Image.fromarray(data1)).copy()
+            # G
+            data2 = emb.copy()
+            data2[:, :, 0] = 0
+            data2[:, :, 2] = 0
+            g = (Image.fromarray(data2)).copy()
+            #B
+            data3 = emb.copy()
+            data3[:, :, 0] = 0
+            data3[:, :, 1] = 0
+            b = (Image.fromarray(data3)).copy()
             
+            if len(allembcolor[i])>=3:  
+                rwith1=allembcolor[i][0]
+                rwith2=allembcolor[i][1]
+                rwith3=allembcolor[i][2]
+            elif len(allembcolor[i])>=2:  
+                rwith1=allembcolor[i][0]
+                rwith2=allembcolor[i][1]
+                rwith3=(colordict['default'])
+            elif len(allembcolor[i])==1:
+                rwith1=allembcolor[i][0]  
+                rwith2=(colordict['default'])
+                rwith3=(colordict['default'])
+            elif bool(allembcolor) is False:
+                rwith1=(colordict['default']) 
+                rwith2=(colordict['default'])
+                rwith3=(colordict['default'])
+        #################RED
+            red, green, blue, alpha = data1.T 
+            toreplace = (red<100) & (blue>=0) & (green>=0) &(alpha>0)
+            data1[toreplace.T] = (255,255,255,0) # Transpose back needed
+            toreplace = (red>0) & (blue==0) &(green==0)
+            data1[..., :-1][toreplace.T] = rwith3 # Transpose back needed
+            nw=int(scale[i][0]*width)
+            nh=int(scale[i][1]*height)
+            newimg=Image.fromarray(data1)
+            if nw<0:
+                newimg=ImageOps.mirror(newimg)
+                nw=nw*-1
+            if nh<0:
+                newimg=ImageOps.flip(newimg)
+                nh=nh*-1
+            if nw!=256 or nh!=256:
+                reddata=newimg.resize((nw,nh),Image.NEAREST)
+            else:
+                reddata=newimg
+        ###################GREEN
+            red, green, blue, alpha = data2.T 
+            toreplace = (red>=0) & (blue>=0) & (green<100) &(alpha>0)
+            data2[toreplace.T] = (255,255,255,0) # Transpose back needed
+            toreplace = (red==0) & (blue==0) &(green>0)
+            data2[..., :-1][toreplace.T] = rwith2 # Transpose back needed
+            nw=int(scale[i][0]*width)
+            nh=int(scale[i][1]*height)
+            newimg=Image.fromarray(data2)
+            if nw<0:
+                newimg=ImageOps.mirror(newimg)
+                nw=nw*-1
+            if nh<0:
+                newimg=ImageOps.flip(newimg)
+                nh=nh*-1
+            if nw!=256 or nh!=256:
+                greendata=newimg.resize((nw,nh),Image.NEAREST)
+            else:
+                greendata=newimg           
+        ####################BLUE
+            red, green, blue, alpha = data3.T 
+            toreplace = (red>=0) & (blue<100) & (green>=0) &(alpha>0)
+            data3[toreplace.T] = (255,255,255,0) # Transpose back needed
+            toreplace = (red == 0) & (blue>0) & (green== 0)
+            data3[..., :-1][toreplace.T] = rwith1 # Transpose back needed
+            nw=int(scale[i][0]*width)
+            nh=int(scale[i][1]*height)
+            newimg=Image.fromarray(data3)
+            if nw<0:
+                newimg=ImageOps.mirror(newimg)
+                nw=nw*-1
+            if nh<0:
+                newimg=ImageOps.flip(newimg)
+                nh=nh*-1
+            if nw!=256 or nh!=256:
+                bluedata=newimg.resize((nw,nh),Image.NEAREST)
+            else:
+                bluedata=newimg
+        ################COMBINE
+            if rotation[i]<0:
+                rot=-rotation[i]
+                greendata=greendata.rotate(rot)
+                bluedata=bluedata.rotate(rot)
+                reddata=reddata.rotate(rot)
+            elif rotation[i]>0:
+                rot=-rotation[i]
+                bluedata=bluedata.rotate(rot)
+                greendata=greendata.rotate(rot)
+                reddata=reddata.rotate(rot)
+            blueb= bluedata.copy()
+            blueb.paste(reddata,(0, 0), reddata)
+            blueb.paste(greendata, (0, 0), greendata)
+            emball.append(blueb)
+
+
+        elif FindRed(width,height,img) is True and FindBlue(width,height,img) is True:
+            # R
+            data1 = emb.copy()
+            data1[:, :, 1] = 0
+            data1[:, :, 2] = 0
+            r = (Image.fromarray(data1)).copy()
+            #B
+            data3 = emb.copy()
+            data3[:, :, 0] = 0
+            data3[:, :, 1] = 0
+            b = (Image.fromarray(data3)).copy()
+            
+            if len(allembcolor[i])>=3:  
+                rwith1=allembcolor[i][0]
+                rwith3=allembcolor[i][2]
+            elif len(allembcolor[i])>=2:  
+                rwith1=allembcolor[i][0]
+                rwith3=(colordict['default'])
+            elif len(allembcolor[i])==1:
+                rwith1=allembcolor[i][0]  
+                rwith3=(colordict['default'])
+            elif bool(allembcolor) is False:
+                rwith1=(colordict['default']) 
+                rwith3=(colordict['default'])
+        #################RED
+            red, green, blue, alpha = data1.T 
+            toreplace = (red<100) & (blue>=0) & (green>=0) &(alpha>0)
+            data1[toreplace.T] = (255,255,255,0) # Transpose back needed
+            toreplace = (red>0) & (blue==0) &(green==0)
+            data1[..., :-1][toreplace.T] = rwith3 # Transpose back needed
+            nw=int(scale[i][0]*width)
+            nh=int(scale[i][1]*height)
+            newimg=Image.fromarray(data1)
+            if nw<0:
+                newimg=ImageOps.mirror(newimg)
+                nw=nw*-1
+            if nh<0:
+                newimg=ImageOps.flip(newimg)
+                nh=nh*-1
+            if nw!=256 or nh!=256:
+                reddata=newimg.resize((nw,nh),Image.NEAREST)
+            else:
+                reddata=newimg
+        ####################BLUE
+            red, green, blue, alpha = data3.T 
+            toreplace = (red>=0) & (blue<100) & (green>=0) &(alpha>0)
+            data3[toreplace.T] = (255,255,255,0) # Transpose back needed
+            toreplace = (red == 0) & (blue>0) & (green== 0)
+            data3[..., :-1][toreplace.T] = rwith1 # Transpose back needed
+            nw=int(scale[i][0]*width)
+            nh=int(scale[i][1]*height)
+            newimg=Image.fromarray(data3)
+            if nw<0:
+                newimg=ImageOps.mirror(newimg)
+                nw=nw*-1
+            if nh<0:
+                newimg=ImageOps.flip(newimg)
+                nh=nh*-1
+            if nw!=256 or nh!=256:
+                bluedata=newimg.resize((nw,nh),Image.NEAREST)
+            else:
+                bluedata=newimg
+        ################COMBINE
+            if rotation[i]<0:
+                rot=-rotation[i]
+                bluedata=bluedata.rotate(rot)
+                reddata=reddata.rotate(rot)
+            elif rotation[i]>0:
+                rot=-rotation[i]
+                bluedata=bluedata.rotate(rot)
+                reddata=reddata.rotate(rot)
+            blueb= bluedata.copy()
+            blueb.paste(reddata,(0, 0), reddata)
+            emball.append(blueb)
+
+
         elif FindGreen(width,height,img) is True and FindBlue(width,height,img) is True:
             # G
             data2 = emb.copy()
@@ -547,11 +730,13 @@ def emblem(pathemb,allembcolor,scale,rotation):
                 bluedata=newimg
             ############COMBINE
             if rotation[i]<0:
-                rot=rotation[i]+360
+                rot=-rotation[i]
                 greendata=greendata.rotate(rot)
                 bluedata=bluedata.rotate(rot)
             elif rotation[i]>0:
-                  bluedata=bluedata.rotate(rotation[i])
+                rot=-rotation[i]
+                bluedata=bluedata.rotate(rot)
+                greendata=greendata.rotate(rot)
             blueb= bluedata.copy()
             blueb.paste(greendata, (0, 0), greendata)
             emball.append(blueb)  
@@ -589,10 +774,11 @@ def emblem(pathemb,allembcolor,scale,rotation):
                 bluedata=newimg
             ############COMBINE
             if rotation[i]<0:
-                rot=rotation[i]+360
+                rot=-rotation[i]
                 bluedata=bluedata.rotate(rot)
             elif rotation[i]>0:
-                bluedata=bluedata.rotate(rotation[i])
+                rot=-rotation[i]
+                bluedata=bluedata.rotate(rot)
             blueb= bluedata.copy()
             emball.append(blueb)  
         else:
@@ -780,8 +966,8 @@ def cadetcoat(patall,emball,patpos,position,patb,ismask):
 def prepareborder():
 #RENKNOWN BORDER
 
-    mask=Image.open('coa_icon/rank/house_115.png')
-    house_mask=Image.open('coa_icon/rank/house_mask.png')
+    mask=Image.open('icon/coa_icon/rank/house_115.png')
+    house_mask=Image.open('icon/coa_icon/rank/house_mask.png')
     house_mask= house_mask.resize((256,256))
     b1= mask.crop((0*153,0*150,1*153,1*150))
     b1=b1.resize((330,330))
@@ -796,12 +982,12 @@ def prepareborder():
     b6=mask.crop((5*153,0, 153*6, 150))
     b6=b6.resize((330,330))    
 #TITLE RANK BORDER
-    title_mask=Image.open('coa_icon/rank/title_mask.png')
+    title_mask=Image.open('icon/coa_icon/rank/title_mask.png')
     title_mask= title_mask.resize((256,256))
-    mask2=Image.open('coa_icon/rank/title_86.png')
+    mask2=Image.open('icon/coa_icon/rank/title_86.png')
     mask2= mask2.resize((290,290))
-    crowns=Image.open('coa_icon/rank/crown_strip_115_gameconcept.png')
-    merc=Image.open('coa_icon/rank/mercenary_topframe_115.png')
+    crowns=Image.open('icon/coa_icon/rank/crown_strip_115_gameconcept.png')
+    merc=Image.open('icon/coa_icon/rank/mercenary_topframe_115.png')
     c1= crowns.crop((0*104,0*104,1*104,1*104))
     c1=c1.resize((290,290))
     c2= crowns.crop((1*104,0, 104*2, 104))
