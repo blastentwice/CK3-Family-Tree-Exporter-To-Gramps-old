@@ -1980,8 +1980,8 @@ def with_icons():
             continue
 #export to workable xml
     p1=(subprocess.run(fr'"{gramps}" -C Anytree -i "{outcsv}" -e "{outgramps}"',shell=True,capture_output=True,input=b'yes')) 
-    error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
-    print(error)
+    #error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
+    #print(error)
     with gzip.open(outgramps, 'rb') as f:
         gfile= f.read()
         root = ET.ElementTree(ET.fromstring(gfile))
@@ -2178,13 +2178,13 @@ def with_icons():
         newname=input()
         housepng=newname
         p1=(subprocess.run(fr'"{gramps}" -C "{housepng}" -i "{outgramps}"',shell=True,capture_output=True))
-        error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
-        print(error)
+        #error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
+        #print(error)
     if change=='y':
         print('Using default name')
         p1=(subprocess.run(fr'"{gramps}" -C "{housepng}" -i "{outgramps}"',shell=True,capture_output=True))
-        error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
-        print(error)
+        #error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
+        #print(error)
     end = time.time()
     timer(start,end)
 
@@ -2236,8 +2236,8 @@ def with_icons_2():
             continue
 #export to workable xml
     p1=(subprocess.run(fr'"{gramps}" -C Anytree -i "{outcsv}" -e "{outgramps}"',shell=True,capture_output=True,input=b'yes')) 
-    error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
-    print(error)
+    #error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
+    #print(error)
     with gzip.open(outgramps, 'rb') as f:
         gfile= f.read()
         root = ET.ElementTree(ET.fromstring(gfile))
@@ -2394,13 +2394,13 @@ def with_icons_2():
         newname=input()
         housepng=newname
         p1=(subprocess.run(fr'"{gramps}" -C "{housepng}" -i "{outgramps}"',shell=True,capture_output=True))
-        error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
-        print(error)
+        #error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
+        #print(error)
     if change=='y':
         print('Using default name')
         p1=(subprocess.run(fr'"{gramps}" -C "{housepng}" -i "{outgramps}"',shell=True,capture_output=True))
-        error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
-        print(error)
+        #error=re.sub('\n.*Gtk-WARNING.*\n','',p1.stderr.decode())
+        #print(error)
     end = time.time()
     timer(start,end)
 
