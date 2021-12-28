@@ -89,6 +89,7 @@ any unknown problems, deleting this folder and starting a clean session would us
 
 ## Future Plans ##
 ~~There are many innovations that are in the works. The most glaring feature missing is coat of arms, which is difficult to implement because of a lack of a COA editor/creation tool that generates a COA with several numeric values and files.~~ As of version 2.0, the exporter will be exporting coat of arms! 
+
 -Depiction of spousal relation and spouses
 
 -Portraits
