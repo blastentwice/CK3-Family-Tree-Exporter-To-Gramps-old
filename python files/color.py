@@ -397,6 +397,15 @@ def subpattern(subpat,allpatcolor,patscale):
         patarray= np.array(img)
         width, height = img.size
         if FindColor(width,height,img,255,0,0) is True and FindColor(width,height,img,255,255,0) is True and FindColor(width,height,img,255,255,255) is True :
+            if len(allpatcolor[i])==2:
+                allpatcolor[i].append(colordict['default'])
+            elif len(allpatcolor[i])==1:
+                allpatcolor[i].append(colordict['default'])
+                allpatcolor[i].append(colordict['default'])
+            elif bool(allpatcolor[i]) is False:
+                allpatcolor[i].append(colordict['default'])
+                allpatcolor[i].append(colordict['default'])
+                allpatcolor[i].append(colordict['default'])
             #patterns
             red, green, blue, alpha = patarray.T 
             # Red
@@ -414,6 +423,13 @@ def subpattern(subpat,allpatcolor,patscale):
             patdata=patdata.resize((nw,nh),Image.NEAREST)
             patall.append(patdata)
         elif FindColor(width,height,img,255,0,0) is True and FindColor(width,height,img,255,255,0) is True:
+            if len(allpatcolor[i])==1:
+                allpatcolor[i].append(colordict['default'])
+                allpatcolor[i].append(colordict['default'])
+            elif bool(allpatcolor[i]) is False:
+                allpatcolor[i].append(colordict['default'])
+                allpatcolor[i].append(colordict['default'])
+                allpatcolor[i].append(colordict['default'])
                     #patterns
             red, green, blue, alpha = patarray.T 
             ######RED
