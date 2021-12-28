@@ -82,7 +82,7 @@ transferring family tree to another computer or sharing with friends.
 24. Once you confirm that the import goes through you can delete your Gramps-XML and CSV file if you wish. You can delete the JSON file as well if you're not using it to extract other dynasties in your save.The JSON file can be used to make family trees with other dynasties in your save. 
 
 ## Step 8: Troubleshooting ##
-Any errors that may come up are displayed on the exporter window as well as in log file called exporter.log located in the exporter folder. You may use this information to fix it yourself or post in it the issues or discord server for discussion.
+Any errors that may come up are displayed on the exporter window as well as in log file called error.log located in the exporter folder. You may use this information to fix it yourself or post in it the issues or discord server for discussion.
 
 As previously stated, future use of the exporter will use the pickle folder to quickly load all information regarding game information and saves. IF you encounter
 any unknown problems, deleting this folder and starting a clean session would usually fix it.
