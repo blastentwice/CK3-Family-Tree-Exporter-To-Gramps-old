@@ -94,6 +94,8 @@ any unknown problems, deleting this folder and starting a clean session would us
 
 -Portraits
 
+-Support Modded Religions/Cultures/COAs
+
 A near future implementation is a stats report that include information on top Faiths,Traits, and other data. They can be manually done in Gramps  using the native filter app, but can be hard to navigate through if you don't know what you're looking for.
 
 ## Contacts ##
