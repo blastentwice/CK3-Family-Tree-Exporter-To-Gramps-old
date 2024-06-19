@@ -99,6 +99,5 @@ A near future implementation is a stats report that include information on top F
 
 ## Contacts ##
 
-For any questions, concerns, and sharing the love for Crusader Kings 3, you can join the discord server here https://discord.gg/MKFDUNtPFB.
 
 
