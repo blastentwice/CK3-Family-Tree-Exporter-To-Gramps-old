@@ -1,8 +1,7 @@
-UPDATE: 6/19/24
-# New update in the works. This repository will be archived for the time being.
+# 6/19/24 New update in the works. This repository will be archived for the time being and new discord to be added soon.
 
 
-# CK3-Family-Tree-Exporter-To-Gramps 2.7 (Compatible with CK3 1.4.4 Azure patch)
+CK3-Family-Tree-Exporter-To-Gramps 2.7 (Compatible with CK3 1.4.4 Azure patch)
 ![alt text](https://github.com/blastentwice/CK3-Family-Tree-Exporter-To-Gramps-Fast-JSON-Version/blob/main/Screenshots/showcase.png?raw=true)
 
 **The Exporter is working as of game version 1.4.4 (Azure) With Normal AND Ironman Save. It can be used for other languages other than english if you tweak the .py file
