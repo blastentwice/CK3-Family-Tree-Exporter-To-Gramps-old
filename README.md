@@ -1,3 +1,7 @@
+UPDATE: 6/19/24
+# New update in the works. This repository will be archived for the time being.
+
+
 # CK3-Family-Tree-Exporter-To-Gramps 2.7 (Compatible with CK3 1.4.4 Azure patch)
 ![alt text](https://github.com/blastentwice/CK3-Family-Tree-Exporter-To-Gramps-Fast-JSON-Version/blob/main/Screenshots/showcase.png?raw=true)
 
