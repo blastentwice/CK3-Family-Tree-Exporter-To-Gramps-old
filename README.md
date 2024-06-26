@@ -1,4 +1,5 @@
 # 6/19/24 New update in the works. This repository will be archived for the time being and new discord to be added soon.
+# 6/26/24. Finally done! Follow the [link](https://github.com/blastentwice/CK3-Family-Tree-Exporter-To-Gramps) to the new release.
 
 
 CK3-Family-Tree-Exporter-To-Gramps 2.7 (Compatible with CK3 1.4.4 Azure patch)
